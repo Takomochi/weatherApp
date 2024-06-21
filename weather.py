@@ -23,7 +23,7 @@ def get_current_weather(lat, lon, API_key):
     
     data = WeatherData(
         main=resp.get('weather')[0].get('main'),
-        description=resp.get('weather')[0].get('description'),
+        description=resp.get('weather')[0].get('description').title(),
         icon=resp.get('weather')[0].get('icon'),
         temperature=int(resp.get('main').get('temp'))
     )
