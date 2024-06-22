@@ -7,12 +7,16 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     data = None
+    city = ''
+    state = ''
+    country = ''
+    
     if request.method == 'POST':
         city = request.form['cityName']
         state = request.form['stateName']
         country = request.form['countryName']
         data = get_weather(city, state, country)
-    return render_template('index.html', data=data)
+    return render_template('index.html', data=data, city=city, state=state, country=country)
 
 
 if __name__ == "__main__":
